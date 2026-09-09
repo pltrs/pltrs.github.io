@@ -1,50 +1,54 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLATTERS — рофл-сайт</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PLATTERS</title>
+
+    <!-- ШРИФТЫ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- СТИЛИ -->
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+    <!-- ТУМБЛЕР ТЕМЫ -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Тема">
+        <span class="material-symbols-outlined" id="themeIcon">dark_mode</span>
+    </button>
+
+    <!-- КОНТЕНТ -->
     <div class="container">
-        <div class="content">
-            <!-- Логотип -->
-            <div class="logo">
-                <h1 class="title">PLATTERS</h1>
-                <p class="subtitle">— рофл-сайт на вайб-коде</p>
-            </div>
 
-            <!-- Описание -->
-            <p class="desc">
-                Не имеет никакой связи с настоящей компанией (которой и так нет).<br>
-                Но планы имеются.
-            </p>
+        <div class="brand">PLATTERS</div>
+        <div class="sub-brand">— рофл-сайт на вайб-коде</div>
 
-            <!-- Кнопки -->
-            <div class="buttons">
-                <a href="https://pltrs.github.io/mob" class="btn btn-mobile">
-                    <span class="btn-text">PLTRS.MOBILE</span>
-                    <span class="btn-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M7 7h10v10" />
-                            <path d="M7 17 17 7" />
-                        </svg>
-                    </span>
-                </a>
-                <a href="https://pltrs.github.io/bank" class="btn btn-bank">
-                    <span class="btn-text">PLTRS.BANK</span>
-                    <span class="btn-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 6 6 18" />
-                            <path d="M6 6 18 18" />
-                        </svg>
-                    </span>
-                </a>
-            </div>
+        <p class="desc">
+            Не имеет никакой связи с настоящей компанией (которой и так нет).<br />
+            Но планы имеются.
+        </p>
+
+        <div class="btns">
+            <a href="/mob" class="btn">
+                <span>PLTRS.MOBILE</span>
+                <span class="icon material-symbols-outlined">arrow_forward</span>
+            </a>
+            <a href="/bank" class="btn">
+                <span>PLTRS.BANK</span>
+                <span class="icon material-symbols-outlined">close</span>
+            </a>
         </div>
+
+        <div class="footer">pltrs © 2026</div>
+
     </div>
 
+    <!-- СКРИПТ -->
     <script src="script.js"></script>
+
 </body>
 </html>
