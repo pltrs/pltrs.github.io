@@ -1,41 +1,32 @@
 // ============================================================
-//   ДОПОЛНИТЕЛЬНАЯ АНИМАЦИЯ (если нужно)
+//   ТЁМНАЯ ТЕМА
 // ============================================================
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
 
-// Все анимации уже сделаны через CSS, но можно добавить
-// эффект при нажатии на кнопку (на случай, если пользователь не ждёт ховера)
+function toggleTheme() {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    themeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+    themeToggle.classList.toggle('rotated');
+    localStorage.setItem('pltrs_main_theme', isDark ? 'dark' : 'light');
+}
 
-document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
+function loadTheme() {
+    const theme = localStorage.getItem('pltrs_main_theme');
+    if (theme === 'dark') {
+        document.body.classList.add('dark');
+        themeIcon.textContent = 'light_mode';
+        themeToggle.classList.add('rotated');
+    } else {
+        document.body.classList.remove('dark');
+        themeIcon.textContent = 'dark_mode';
+        themeToggle.classList.remove('rotated');
+    }
+}
 
-        // Если кнопка уже активна — ничего не делаем
-        if (this.classList.contains('active')) return;
-
-        // Убираем активность у всех кнопок
-        document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
-
-        // Добавляем активность текущей
-        this.classList.add('active');
-
-        // Имитация заливки (на случай, если :hover не сработал на тач-устройствах)
-        this.style.setProperty('--fill-width', '100%');
-
-        // Через 2 секунды снимаем активность
-        setTimeout(() => {
-            this.classList.remove('active');
-        }, 2000);
-    });
-});
-
-// Плавная прокрутка (если будет несколько страниц)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-
-console.log('🚀 PLATTERS — рофл-сайт загружен!');
+// ============================================================
+//   ЗАПУСК
+// ============================================================
+themeToggle.addEventListener('click', toggleTheme);
+document.addEventListener('DOMContentLoaded', loadTheme);
